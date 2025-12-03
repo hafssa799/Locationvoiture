@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Application de Gestion de Location de Voitures - Back Office
 
 Application WinForms pour la gestion complète d'un système de location de voitures.
@@ -128,3 +129,6 @@ LocationVoitures.BackOffice/
 
 Pour toute question ou problème, consultez la documentation ou contactez le support technique.
 
+=======
+"# dar_caftan" 
+>>>>>>> d04b2da13640fbf26578333bfa1fa0e6e1b66f4e
