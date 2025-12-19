@@ -19,5 +19,6 @@ namespace LocationVoitures.BackOffice.Models
         public DateTime? DateDernierEntretien { get; set; }
         public DateTime? ProchainEntretien { get; set; }
         public string Statut { get; set; } // "Disponible", "En location", "En entretien", "Hors service"
+        public string PhotoPath { get; set; } // Chemin relatif vers l'image
     }
 }

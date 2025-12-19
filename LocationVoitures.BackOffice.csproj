@@ -49,7 +49,9 @@
   <ItemGroup>
     <Compile Include="UI\Theme.cs" />
     <Compile Include="DAL\DatabaseHelper.cs" />
+    <Compile Include="DAL\MigrationHelper.cs" />
     <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Empolye.cs" />
     <Compile Include="Models\Entretien.cs" />
@@ -119,6 +121,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\VehiculesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />

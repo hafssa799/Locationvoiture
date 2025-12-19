@@ -1,0 +1,51 @@
+@model IEnumerable<LocationVoitures.Web.Models.Vehicule>
+@{
+    ViewData["Title"] = "Nos Véhicules";
+}
+
+<div class="row mb-4 align-items-center">
+    <div class="col-md-6">
+        <h2 class="text-white">Nos Véhicules Disponibles</h2>
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex justify-content-end align-items-center">
+            <form asp-action="Index" method="get" class="d-flex me-2 flex-grow-1">
+                <input type="text" name="search" class="form-control me-2" placeholder="Rechercher..." value="@ViewContext.HttpContext.Request.Query["search"]" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">
+                <button type="submit" class="btn btn-outline-light">Rechercher</button>
+            </form>
+            <a asp-action="GenerateData" class="btn btn-warning btn-sm" onclick="return confirm('Générer 50 voitures de test ?');" title="Générer Flotte Démo">
+                <i class="fas fa-magic"></i> +50 Cars
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var car in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm glass-card border-0" style="overflow: hidden;">
+                <a asp-action="Details" asp-route-id="@car.IdVehicule">
+                    @if (!string.IsNullOrEmpty(car.PhotoPath))
+                    {
+                        <img src="@Url.Content("~/" + car.PhotoPath)" class="card-img-top" style="height: 200px; object-fit: cover; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" alt="@car.Marque" />
+                    }
+                    else
+                    {
+                        <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <span>Pas d'image</span>
+                        </div>
+                    }
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@car.Marque @car.Modele</h5>
+                    <p class="card-text text-primary fw-bold">@car.PrixJour.ToString("C") / jour</p>
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Details" asp-route-id="@car.IdVehicule" class="btn btn-primary btn-sm flex-grow-1 me-1">Voir Détails</a>
+                        <a asp-controller="Reservation" asp-action="Book" asp-route-id="@car.IdVehicule" class="btn btn-outline-success btn-sm flex-grow-1 ms-1">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

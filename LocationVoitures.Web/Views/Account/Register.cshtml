@@ -1,0 +1,67 @@
+@model LocationVoitures.Web.Models.Client
+@{
+    ViewData["Title"] = "Inscription";
+}
+
+<div class="container-fluid login-bg d-flex align-items-center justify-content-center" style="min-height: 85vh;">
+    <div class="col-md-8 col-lg-6">
+        <div class="glass-card">
+            <div class="glass-header">
+                <h2>Join Prestige Drive</h2>
+                <p class="text-muted">Create your premium account today</p>
+            </div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger bg-transparent border-danger text-danger">@ViewBag.Error</div>
+            }
+
+            <form asp-action="Register" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="Nom" class="form-control" placeholder="Nom" required />
+                            <label>Nom</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="Prenom" class="form-control" placeholder="Prénom" required />
+                            <label>Prénom</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-floating">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email" required />
+                    <label>Email</label>
+                </div>
+
+                <div class="form-floating">
+                    <input asp-for="MotDePasse" type="password" class="form-control" placeholder="Password" required />
+                    <label>Mot de passe</label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="Telephone" class="form-control" placeholder="Téléphone" />
+                            <label>Téléphone</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input asp-for="Adresse" class="form-control" placeholder="Adresse" />
+                            <label>Adresse</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">REGISTER</button>
+                    <a asp-action="Login" class="btn btn-outline-light">ALREADY HAVE AN ACCOUNT?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,192 +1,146 @@
+
 namespace LocationVoitures.BackOffice
 {
     partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem menuAccueil;
-        private System.Windows.Forms.ToolStripMenuItem menuDashboard;
-        private System.Windows.Forms.ToolStripMenuItem menuGestion;
-        private System.Windows.Forms.ToolStripMenuItem menuEmployes;
-        private System.Windows.Forms.ToolStripMenuItem menuClients;
-        private System.Windows.Forms.ToolStripMenuItem menuVehicules;
-        private System.Windows.Forms.ToolStripMenuItem menuTypesVehicules;
-        private System.Windows.Forms.ToolStripMenuItem menuTarifs;
-        private System.Windows.Forms.ToolStripMenuItem menuLocations;
-        private System.Windows.Forms.ToolStripMenuItem menuPaiements;
-        private System.Windows.Forms.ToolStripMenuItem menuEntretiens;
-        private System.Windows.Forms.ToolStripMenuItem menuUtilisateur;
-        private System.Windows.Forms.ToolStripMenuItem menuDeconnexion;
+        private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Label lblAppTitle;
+        private System.Windows.Forms.Label lblHeaderTitle;
+        
+        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnLocations;
+        private System.Windows.Forms.Button btnVehicules;
+        private System.Windows.Forms.Button btnClients;
+        private System.Windows.Forms.Button btnPaiements;
+        private System.Windows.Forms.Button btnEntretiens;
+        private System.Windows.Forms.Button btnTarifs;
+        private System.Windows.Forms.Button btnTypesVehicules;
+        private System.Windows.Forms.Button btnEmployes;
+        private System.Windows.Forms.Button btnContact;
+        private System.Windows.Forms.Button btnDeconnexion;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.menuAccueil = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDashboard = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGestion = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEmployes = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuClients = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuVehicules = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuTypesVehicules = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuTarifs = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLocations = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuPaiements = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEntretiens = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuUtilisateur = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDeconnexion = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.menuStrip.SuspendLayout();
+            this.lblAppTitle = new System.Windows.Forms.Label();
+            this.lblHeaderTitle = new System.Windows.Forms.Label();
+            
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnLocations = new System.Windows.Forms.Button();
+            this.btnVehicules = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
+            this.btnPaiements = new System.Windows.Forms.Button();
+            this.btnEntretiens = new System.Windows.Forms.Button();
+            this.btnTarifs = new System.Windows.Forms.Button();
+            this.btnTypesVehicules = new System.Windows.Forms.Button();
+            this.btnEmployes = new System.Windows.Forms.Button();
+            this.btnContact = new System.Windows.Forms.Button();
+            this.btnDeconnexion = new System.Windows.Forms.Button();
+
+            this.pnlSidebar.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuAccueil,
-            this.menuGestion,
-            this.menuUtilisateur});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1200, 24);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // menuAccueil
-            // 
-            this.menuAccueil.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuDashboard});
-            this.menuAccueil.Name = "menuAccueil";
-            this.menuAccueil.Size = new System.Drawing.Size(56, 20);
-            this.menuAccueil.Text = "Accueil";
-            // 
-            // menuDashboard
-            // 
-            this.menuDashboard.Name = "menuDashboard";
-            this.menuDashboard.Size = new System.Drawing.Size(180, 22);
-            this.menuDashboard.Text = "Tableau de bord";
-            this.menuDashboard.Click += new System.EventHandler(this.menuDashboard_Click);
-            // 
-            // menuGestion
-            // 
-            this.menuGestion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuEmployes,
-            this.menuClients,
-            this.menuVehicules,
-            this.menuTypesVehicules,
-            this.menuTarifs,
-            this.menuLocations,
-            this.menuPaiements,
-            this.menuEntretiens});
-            this.menuGestion.Name = "menuGestion";
-            this.menuGestion.Size = new System.Drawing.Size(60, 20);
-            this.menuGestion.Text = "Gestion";
-            // 
-            // menuEmployes
-            // 
-            this.menuEmployes.Name = "menuEmployes";
-            this.menuEmployes.Size = new System.Drawing.Size(180, 22);
-            this.menuEmployes.Text = "Employés";
-            this.menuEmployes.Click += new System.EventHandler(this.menuEmployes_Click);
-            // 
-            // menuClients
-            // 
-            this.menuClients.Name = "menuClients";
-            this.menuClients.Size = new System.Drawing.Size(180, 22);
-            this.menuClients.Text = "Clients";
-            this.menuClients.Click += new System.EventHandler(this.menuClients_Click);
-            // 
-            // menuVehicules
-            // 
-            this.menuVehicules.Name = "menuVehicules";
-            this.menuVehicules.Size = new System.Drawing.Size(180, 22);
-            this.menuVehicules.Text = "Véhicules";
-            this.menuVehicules.Click += new System.EventHandler(this.menuVehicules_Click);
-            // 
-            // menuTypesVehicules
-            // 
-            this.menuTypesVehicules.Name = "menuTypesVehicules";
-            this.menuTypesVehicules.Size = new System.Drawing.Size(180, 22);
-            this.menuTypesVehicules.Text = "Types de véhicules";
-            this.menuTypesVehicules.Click += new System.EventHandler(this.menuTypesVehicules_Click);
-            // 
-            // menuTarifs
-            // 
-            this.menuTarifs.Name = "menuTarifs";
-            this.menuTarifs.Size = new System.Drawing.Size(180, 22);
-            this.menuTarifs.Text = "Tarifs";
-            this.menuTarifs.Click += new System.EventHandler(this.menuTarifs_Click);
-            // 
-            // menuLocations
-            // 
-            this.menuLocations.Name = "menuLocations";
-            this.menuLocations.Size = new System.Drawing.Size(180, 22);
-            this.menuLocations.Text = "Locations";
-            this.menuLocations.Click += new System.EventHandler(this.menuLocations_Click);
-            // 
-            // menuPaiements
-            // 
-            this.menuPaiements.Name = "menuPaiements";
-            this.menuPaiements.Size = new System.Drawing.Size(180, 22);
-            this.menuPaiements.Text = "Paiements";
-            this.menuPaiements.Click += new System.EventHandler(this.menuPaiements_Click);
-            // 
-            // menuEntretiens
-            // 
-            this.menuEntretiens.Name = "menuEntretiens";
-            this.menuEntretiens.Size = new System.Drawing.Size(180, 22);
-            this.menuEntretiens.Text = "Entretiens";
-            this.menuEntretiens.Click += new System.EventHandler(this.menuEntretiens_Click);
-            // 
-            // menuUtilisateur
-            // 
-            this.menuUtilisateur.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuDeconnexion});
-            this.menuUtilisateur.Name = "menuUtilisateur";
-            this.menuUtilisateur.Size = new System.Drawing.Size(71, 20);
-            this.menuUtilisateur.Text = "Utilisateur";
-            // 
-            // menuDeconnexion
-            // 
-            this.menuDeconnexion.Name = "menuDeconnexion";
-            this.menuDeconnexion.Size = new System.Drawing.Size(180, 22);
-            this.menuDeconnexion.Text = "Déconnexion";
-            this.menuDeconnexion.Click += new System.EventHandler(this.menuDeconnexion_Click);
-            // 
+
+            // pnlSidebar
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(25, 25, 25);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Size = new System.Drawing.Size(220, 700);
+
+            // Deconnexion
+            this.btnDeconnexion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDeconnexion.Size = new System.Drawing.Size(220, 45);
+            this.btnDeconnexion.Text = "  Déconnexion";
+            this.btnDeconnexion.Tag = "Sidebar";
+            this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
+
+            var navPanel = new System.Windows.Forms.Panel();
+            navPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            navPanel.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+
+            // Buttons Config
+            ConfigBtn(btnContact, "  📍 Contact", btnContact_Click);
+            ConfigBtn(btnEmployes, "  Employés", btnEmployes_Click);
+            ConfigBtn(btnEntretiens, "  Entretiens", btnEntretiens_Click);
+            ConfigBtn(btnPaiements, "  Paiements", btnPaiements_Click);
+            ConfigBtn(btnLocations, "  Locations", btnLocations_Click);
+            ConfigBtn(btnTarifs, "  Tarifs", btnTarifs_Click);
+            ConfigBtn(btnTypesVehicules, "  Types Véhicules", btnTypesVehicules_Click);
+            ConfigBtn(btnVehicules, "  Véhicules", btnVehicules_Click);
+            ConfigBtn(btnClients, "  Clients", btnClients_Click);
+            ConfigBtn(btnDashboard, "  Tableau de Bord", btnDashboard_Click);
+
+            // App Title
+            this.lblAppTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAppTitle.Height = 80;
+            this.lblAppTitle.Text = "RENTAL CAR";
+            this.lblAppTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAppTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblAppTitle.ForeColor = System.Drawing.Color.White;
+
+            this.pnlSidebar.Controls.Add(navPanel);
+            this.pnlSidebar.Controls.Add(this.btnDeconnexion);
+            this.pnlSidebar.Controls.Add(this.lblAppTitle);
+
+            navPanel.Controls.Add(btnContact);
+            navPanel.Controls.Add(btnEmployes);
+            navPanel.Controls.Add(btnEntretiens);
+            navPanel.Controls.Add(btnPaiements);
+            navPanel.Controls.Add(btnLocations);
+            navPanel.Controls.Add(btnTarifs);
+            navPanel.Controls.Add(btnTypesVehicules);
+            navPanel.Controls.Add(btnVehicules);
+            navPanel.Controls.Add(btnClients);
+            navPanel.Controls.Add(btnDashboard);
+
+            // pnlHeader
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Height = 60;
+            this.pnlHeader.Controls.Add(this.lblHeaderTitle);
+
+            this.lblHeaderTitle.AutoSize = true;
+            this.lblHeaderTitle.Location = new System.Drawing.Point(20, 18);
+            this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblHeaderTitle.Text = "Accueil";
+            this.lblHeaderTitle.ForeColor = System.Drawing.Color.White;
+
             // panelContent
-            // 
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(0, 24);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1200, 676);
-            this.panelContent.TabIndex = 1;
-            // 
+
             // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.panelContent);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
-            this.Name = "MainForm";
+            this.Controls.Add(this.pnlHeader);
+            this.Controls.Add(this.pnlSidebar);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion Location de Voitures - Back Office";
+            this.Text = "Gestion Location de Voitures";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            
+            this.pnlSidebar.ResumeLayout(false);
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
+        }
+
+        private void ConfigBtn(System.Windows.Forms.Button btn, string text, System.EventHandler handler)
+        {
+            btn.Dock = System.Windows.Forms.DockStyle.Top;
+            btn.Size = new System.Drawing.Size(220, 45);
+            btn.Text = text;
+            btn.Tag = "Sidebar";
+            btn.Click += handler;
         }
     }
 }
-

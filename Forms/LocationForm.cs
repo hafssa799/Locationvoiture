@@ -157,6 +157,23 @@ namespace LocationVoitures.BackOffice.Forms
             bool success = isEdit ? repo.UpdateLocation(location) : repo.AddLocation(location);
             if (success)
             {
+                // Send Email Notification
+                try
+                {
+                    string clientName = cmbClient.Text;
+                    // In real app we'd get email from Client object. Assuming dummy email for now or fetching it.
+                    // Since Client combobox is bound to DataTable, we can try to get the row.
+                    string clientEmail = "client@example.com"; 
+                    if (cmbClient.SelectedItem is System.Data.DataRowView drv)
+                    {
+                         clientEmail = drv["Email"].ToString();
+                    }
+
+                    var emailService = new LocationVoitures.BackOffice.Services.EmailService();
+                    emailService.SendReservationConfirmation(clientEmail, clientName, location);
+                }
+                catch { /* Don't block UI if email fails */ }
+
                 MessageBox.Show(isEdit ? "Location modifiée avec succès." : "Location ajoutée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();

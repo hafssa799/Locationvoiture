@@ -1,0 +1,81 @@
+@model LocationVoitures.Web.Models.Vehicule
+@{
+    ViewData["Title"] = "Détails du Véhicule";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Photo Column -->
+        <div class="col-md-7 mb-4">
+            <div class="card shadow-lg" style="border: none; overflow: hidden;">
+                @if (!string.IsNullOrEmpty(Model.PhotoPath))
+                {
+                    <img src="@Url.Content("~/" + Model.PhotoPath)" class="img-fluid w-100" style="height: 400px; object-fit: cover;" alt="@Model.Marque" />
+                }
+                else
+                {
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 400px; font-size: 2rem;">
+                        Pas de Photo
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Details Column -->
+        <div class="col-md-5">
+            <h2 class="display-5 mb-3" style="color: var(--premium-gold);">@Model.Marque @Model.Modele</h2>
+            <h4 class="text-white mb-4">@Model.PrixJour.ToString("C") <small class="text-muted">/ jour</small></h4>
+
+            <table class="table table-dark table-striped table-hover mb-4" style="border: 1px solid #333;">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-muted">Année</th>
+                        <td>@Model.Annee</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Catégorie</th>
+                        <td>@Model.TypeVehicule</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Couleur</th>
+                        <td>@Model.Couleur</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Carburant</th>
+                        <td>@Model.Carburant</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Kilométrage</th>
+                        <td>@(Model.Kilometrage.HasValue ? Model.Kilometrage.Value.ToString("N0") + " km" : "N/A")</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Référence</th>
+                        <td>@Model.Immatriculation.Substring(0, 3)***</td> 
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted">Statut</th>
+                        <td>
+                            @if (Model.Disponible)
+                            {
+                                <span class="badge bg-success">Disponible</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Indisponible</span>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="d-grid gap-2">
+                <a asp-controller="Reservation" asp-action="Book" asp-route-id="@Model.IdVehicule" class="btn btn-primary btn-lg">
+                    Réserver Maintenant
+                </a>
+                <a asp-action="Index" class="btn btn-outline-light">
+                    Retour au Catalogue
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

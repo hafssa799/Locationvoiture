@@ -172,9 +172,9 @@ namespace LocationVoitures.BackOffice.DAL
         public bool AddVehicule(Vehicule vehicule)
         {
             string query = @"INSERT INTO Vehicules (Marque, Modele, Annee, Immatriculation, PrixJour, 
-                           IdType, Disponible, Kilometrage, Couleur, Carburant, Statut) 
+                           IdType, Disponible, Kilometrage, Couleur, Carburant, Statut, PhotoPath) 
                            VALUES (@Marque, @Modele, @Annee, @Immatriculation, @PrixJour, @IdType, 
-                           @Disponible, @Kilometrage, @Couleur, @Carburant, @Statut)";
+                           @Disponible, @Kilometrage, @Couleur, @Carburant, @Statut, @PhotoPath)";
             var parameters = new[]
             {
                 new SqlParameter("@Marque", vehicule.Marque),
@@ -187,7 +187,8 @@ namespace LocationVoitures.BackOffice.DAL
                 new SqlParameter("@Kilometrage", vehicule.Kilometrage ?? (object)DBNull.Value),
                 new SqlParameter("@Couleur", vehicule.Couleur ?? (object)DBNull.Value),
                 new SqlParameter("@Carburant", vehicule.Carburant ?? (object)DBNull.Value),
-                new SqlParameter("@Statut", vehicule.Statut ?? "Disponible")
+                new SqlParameter("@Statut", vehicule.Statut ?? "Disponible"),
+                new SqlParameter("@PhotoPath", vehicule.PhotoPath ?? (object)DBNull.Value)
             };
             return db.ExecuteNonQuery(query, parameters) > 0;
         }
@@ -197,7 +198,7 @@ namespace LocationVoitures.BackOffice.DAL
             string query = @"UPDATE Vehicules SET Marque=@Marque, Modele=@Modele, Annee=@Annee, 
                            Immatriculation=@Immatriculation, PrixJour=@PrixJour, IdType=@IdType, 
                            Disponible=@Disponible, Kilometrage=@Kilometrage, Couleur=@Couleur, 
-                           Carburant=@Carburant, Statut=@Statut WHERE IdVehicule=@IdVehicule";
+                           Carburant=@Carburant, Statut=@Statut, PhotoPath=@PhotoPath WHERE IdVehicule=@IdVehicule";
             var parameters = new[]
             {
                 new SqlParameter("@IdVehicule", vehicule.IdVehicule),
@@ -211,7 +212,8 @@ namespace LocationVoitures.BackOffice.DAL
                 new SqlParameter("@Kilometrage", vehicule.Kilometrage ?? (object)DBNull.Value),
                 new SqlParameter("@Couleur", vehicule.Couleur ?? (object)DBNull.Value),
                 new SqlParameter("@Carburant", vehicule.Carburant ?? (object)DBNull.Value),
-                new SqlParameter("@Statut", vehicule.Statut ?? "Disponible")
+                new SqlParameter("@Statut", vehicule.Statut ?? "Disponible"),
+                new SqlParameter("@PhotoPath", vehicule.PhotoPath ?? (object)DBNull.Value)
             };
             return db.ExecuteNonQuery(query, parameters) > 0;
         }
@@ -435,6 +437,14 @@ namespace LocationVoitures.BackOffice.DAL
                     new SqlParameter("@Id", entretien.IdVehicule));
             }
             return success;
+        }
+
+        public DataTable GetVehiculesEntretienUrgent()
+        {
+            return db.ExecuteQuery(@"SELECT * FROM Vehicules 
+                                   WHERE ProchainEntretien IS NOT NULL 
+                                   AND ProchainEntretien <= DATEADD(day, 7, GETDATE())
+                                   ORDER BY ProchainEntretien ASC");
         }
 
         // ========== STATISTIQUES ==========
